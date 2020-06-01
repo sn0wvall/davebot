@@ -16,7 +16,6 @@ module.exports.run = async (bot, message, args) => {
     ]
 
     let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
-    console.log(subreddit)
 
     message.channel.startTyping();
 
@@ -29,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
             }).then(() => message.channel.stopTyping());
     }).catch(err => console.error(err));
 
-    console.log("meme command executed succesfully")
+    console.log(`meme command executed succesfully from subreddit \"${subreddit}\"`)
 }
 
 module.exports.help = {
