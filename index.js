@@ -10,6 +10,12 @@ const bot = new Discord.Client({disableEveryone: true});
 const randomPuppy = require("random-puppy")
 const fs = require("fs");
 
+// Reset Monopoly
+
+fs.writeFile('./monopoly/users', '', function (err) {}); 
+fs.writeFile('./monopoly/tokens', '', function (err) {}); 
+fs.writeFile('./monopoly/ledger', '', function (err) {}); 
+
 bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err, files) => {
@@ -37,8 +43,8 @@ bot.on("ready", () => {
     console.log(`"${bot.user.username}" is operational.`)
     bot.user.setPresence({
         game: {
-            name: 'the screams of his enemies',
-            type: "listening",
+            name: 'the damn objective',
+            type: "playing",
         }
     });
 });
