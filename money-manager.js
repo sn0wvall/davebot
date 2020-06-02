@@ -21,7 +21,7 @@ module.exports = {
         },
         ledge: function (source, dest, val) {
                 console.log(`${source} pays ${dest} £${val}`)
-                fs.appendFile('./monopoly/ledger', `${source} pays ${dest} £${val}`, function () {}); 
+                fs.appendFile('./monopoly/ledger', `${source} pays ${dest} £${val}\n`, function () {}); 
         }
         
       };
