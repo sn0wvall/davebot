@@ -45,6 +45,7 @@ module.exports.run = async (bot, message, args) => {
                 fs.appendFile('monopoly/tokens', messageArray[2], function (err) {})
                 fs.appendFile('monopoly/users', message.author.username, function (err) {})
                 message.channel.send(`${message.author.username} Registered! Token: ${messageArray[2]}`)
+                fs.writeFile(`monopoly/${message.author.username}`, '0', function () {})
                 console.log(`MONO: ${message.author.username} registered with token: ${messageArray[2]}`)
             }
             break;
