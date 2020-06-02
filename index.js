@@ -16,6 +16,10 @@ fs.writeFile('./monopoly/users', '', function (err) {});
 fs.writeFile('./monopoly/tokens', '', function (err) {}); 
 fs.writeFile('./monopoly/ledger', '', function (err) {}); 
 
+// REMOVE THIS
+
+fs.writeFile(`./monopoly/baf1d`, '1500', function () {}); 
+
 bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err, files) => {

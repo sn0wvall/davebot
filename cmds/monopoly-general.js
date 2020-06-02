@@ -5,8 +5,8 @@ var fs = require('fs');
 module.exports.run = async (bot, message, args) => {
     // Load Data
 
-    var users = fs.readFileSync('./monopoly/users').toString().split("\n");
-    var tokensRegistered = fs.readFileSync('./monopoly/tokens').toString().split("\n");
+    const users = fs.readFileSync('./monopoly/users').toString().split("\n");
+    const tokensRegistered = fs.readFileSync('./monopoly/tokens').toString().split("\n");
 
     let messageArray = message.content.split(" ");
     tokens = ["dog", "shoe", "hat", "boat", "car", "iron", "thimble", "wheelbarrow", "cat"]
@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
                 fs.appendFile('monopoly/tokens', messageArray[2], function (err) {})
                 fs.appendFile('monopoly/users', message.author.username, function (err) {})
                 message.channel.send(`${message.author.username} Registered! Token: ${messageArray[2]}`)
-                fs.writeFile(`monopoly/${message.author.username}`, '0', function () {})
+                fs.writeFile(`monopoly/${message.author.username}`, '1500', function () {})
                 console.log(`MONO: ${message.author.username} registered with token: ${messageArray[2]}`)
             }
             break;

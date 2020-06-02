@@ -19,10 +19,12 @@ module.exports.run = async (bot, message, args) => {
             case "add":
                 fs.appendFile('./monopoly/ledger', `bank pays ${message.author.username} ${actionDest[1]}`, function () {}); 
                 money.add(message.author.username, actionDest[1])
+                money.ledge("bank", message.author.username, actionDest[1])
             break;
             case "pay":
                 fs.appendFile('./monopoly/ledger', `${message.author.username} pays bank ${actionDest[1]}`, function () {})
-                money.pay()
+                money.pay(message.author.username, actionDest[1])
+                money.ledge(message.author.username, "bank", actionDest[1])
             break;
         }
 
