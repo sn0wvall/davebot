@@ -9,7 +9,7 @@
   - [ ] Special Cases (e.g. pay repairs from number of house/hotels)
 
 
-- [ ] Money Management
+- [x] Money Management
   - [x] Store Ledger
   - [x] Store user sums
 
