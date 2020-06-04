@@ -9,8 +9,6 @@
   - [ ] Special Cases for Chance (e.g. pay repairs from number of house/hotels)
   - [ ] Special Cases for Community Chest (e.g. Grand Opera Night)
 
-
-
 - [x] Money Management
   - [x] Store Ledger
   - [x] Store user sums

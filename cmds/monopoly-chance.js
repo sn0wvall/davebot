@@ -24,6 +24,25 @@ module.exports.run = async (bot, message, args) => {
                 money.pay(message.author.username, actionDest[1])
                 money.ledge(message.author.username, "bank", actionDest[1])
             break;
+            case "getout":
+                const userFile = require(`../monopoly/users/${message.author.username}.json`)
+
+                var userOutJSON = fs.readFileSync(`./monopoly/users/${message.author.username}.json`)
+                var userOutRaw = JSON.parse(userOutJSON);
+
+                var userOut = parseInt(userOutRaw.getout, 10) 
+
+                userFile.getout = userOut + 1
+
+                fs.writeFile(`./monopoly/users/${message.author.username}.json`, JSON.stringify(userFile), function () {});
+            break;
+            case "distrib":
+                const users = fs.readFileSync('./monopoly/usersList').toString().split("\n");
+                userNum = users.length - 1
+                let cost = userNum * actionDest[1]
+                money.pay(message.author.username, cost)
+                money.distribute(message.author.username, actionDest[1])
+            break;
         }
 
     return;

@@ -19,7 +19,8 @@ fs.writeFile('monopoly/usersList', '', function () {})
 
 // REMOVE THIS
 
-fs.writeFile(`./monopoly/users/tester.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0}', function () {}); 
+fs.writeFile(`./monopoly/users/tester.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0, \"getout\":0}\n', function () {})
+
 
 bot.commands = new Discord.Collection();
 
