@@ -5,7 +5,7 @@ var fs = require('fs');
 module.exports.run = async (bot, message, args) => {
     // Load Data
 
-    const users = fs.readFileSync('./monopoly/users').toString().split("\n");
+    const users = fs.readFileSync('./monopoly/usersList').toString().split("\n");
     const tokensRegistered = fs.readFileSync('./monopoly/tokens').toString().split("\n");
 
     let messageArray = message.content.split(" ");
@@ -13,7 +13,8 @@ module.exports.run = async (bot, message, args) => {
 
     switch(messageArray[1]) {
         case "init":
-            fs.writeFile('./monopoly/users', '', function (err) {}); 
+            fs.writeFile('./monopoly/usersList', '', function (err) {}); 
+            fs.writeFile('./monopoly/users/pot.json', '', function (err) {}); 
             fs.writeFile('./monopoly/tokens', '', function (err) {}); 
             fs.writeFile('./monopoly/ledger', '', function (err) {}); 
             message.channel.send("Game Initialised. To register your player, use *!m register [token]*.")
@@ -42,10 +43,10 @@ module.exports.run = async (bot, message, args) => {
                 location = users.indexOf(message.author.username)
                 message.channel.send(`${message.author.username} already registered with token ${tokensRegistered[location]}`)
             } else {
-                fs.appendFile('monopoly/tokens', messageArray[2], function (err) {})
-                fs.appendFile('monopoly/users', message.author.username, function (err) {})
+                fs.appendFile('monopoly/tokens', `${messageArray[2]}\n`, function () {})
+                fs.appendFile('monopoly/usersList', `${message.author.username}\n`, function () {})
                 message.channel.send(`${message.author.username} Registered! Token: ${messageArray[2]}`)
-                fs.writeFile(`monopoly/${message.author.username}`, '1500', function () {})
+                fs.writeFile(`monopoly/users/${message.author.username}.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0}', function () {})
                 console.log(`MONO: ${message.author.username} registered with token: ${messageArray[2]}`)
             }
             break;
