@@ -6,14 +6,16 @@
 - [ ] Chance and Community Chest
   - [x] Choose random Message
   - [x] Execute Basic Use Cases (Player pays bank and vice versa)
-  - [ ] Special Cases (e.g. pay repairs from number of house/hotels)
+  - [ ] Special Cases for Chance (e.g. pay repairs from number of house/hotels)
+  - [ ] Special Cases for Community Chest (e.g. Grand Opera Night)
+
 
 
 - [x] Money Management
   - [x] Store Ledger
   - [x] Store user sums
 
-- [ ] Dice
+- [x] Dice
 
 - [ ] Properties
   - [ ] Create List of Properties in JSON format
@@ -22,9 +24,9 @@
     - [ ] Add the property to the player and mark it as sold
   - [ ] Mortgage
 
-- [ ] Misc Board
-  - [ ] Pay taxes into pot
-  - [ ] "go" command to give the user £200
+- [x] Misc Board
+  - [x] Pay taxes into pot
+  - [x] "go" command to give the user £200
 
 - [ ] Jail
   - [ ] Allow user to declare how they will leave prison (roll a double, pay, etc)

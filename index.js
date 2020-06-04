@@ -12,13 +12,14 @@ const fs = require("fs");
 
 // Reset Monopoly
 
-fs.writeFile('./monopoly/users', '', function (err) {}); 
-fs.writeFile('./monopoly/tokens', '', function (err) {}); 
-fs.writeFile('./monopoly/ledger', '', function (err) {}); 
+fs.writeFile('./monopoly/tokens', '', function () {}); 
+fs.writeFile('./monopoly/ledger', '', function () {}); 
+fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {}); 
+fs.writeFile('monopoly/usersList', '', function () {})
 
 // REMOVE THIS
 
-fs.writeFile(`./monopoly/baf1d`, '1500', function () {}); 
+fs.writeFile(`./monopoly/users/tester.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0}', function () {}); 
 
 bot.commands = new Discord.Collection();
 

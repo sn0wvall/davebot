@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 // Needed for managing ledger and user files
-var fs = require('fs'); 
-var money = require('../money-manager.js');
+const fs = require('fs'); 
+const money = require('../money-manager.js');
 
 module.exports.run = async (bot, message, args) => {
         
