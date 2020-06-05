@@ -66,9 +66,6 @@ module.exports = {
                 });
 
         },
-        collect: function (name, valDisRaw) {
-
-        },
         ledge: function (source, dest, val) {
                 console.log(`MONO: ${source} pays ${dest} £${val}`)
                 fs.appendFile('./monopoly/ledger', `${source} pays ${dest} £${val}\n`, function () {}); 

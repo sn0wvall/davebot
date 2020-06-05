@@ -3,11 +3,11 @@
 ## V1
 
 
-- [ ] Chance and Community Chest
+- [x] Chance and Community Chest
   - [x] Choose random Message
   - [x] Execute Basic Use Cases (Player pays bank and vice versa)
-  - [ ] Special Cases for Chance (e.g. pay repairs from number of house/hotels)
-  - [ ] Special Cases for Community Chest (e.g. Grand Opera Night)
+  - [x] Special Cases for Chance (e.g. pay repairs from number of house/hotels)
+  - [x] Special Cases for Community Chest (e.g. Grand Opera Night)
 
 - [x] Money Management
   - [x] Store Ledger
