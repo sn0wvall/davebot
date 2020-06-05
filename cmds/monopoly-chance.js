@@ -44,6 +44,7 @@ module.exports.run = async (bot, message, args) => {
                 let cost = userNum * actionDest[1]
                 money.pay(message.author.username, cost)
                 money.distribute(message.author.username, actionDest[1])
+                money.ledge(message.author.username, "the other players", cost)
             break;
             case "jail":
                 jail.add(message.author.username)
