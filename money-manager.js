@@ -1,7 +1,23 @@
 const fs = require('fs'); 
 
-
 module.exports = {
+        check: function (name, valRaw, message) {
+                const userFile = require(`./monopoly/users/${name}.json`)
+                
+                var userCheckJSON = fs.readFileSync(`./monopoly/users/${name}.json`)
+                var userCheckRaw = JSON.parse(userCheckJSON);
+
+                var userCheck = parseInt(userCheckRaw.money, 10)
+                var valCheck = parseInt(valRaw, 10)
+
+                if (userCheck < valCheck){
+                        console.log(`MONO: ${name} cannot afford to pay £${valCheck}`)
+                        message.channel.send(`${message.author.username} cannot affort to pay £${valCheck}!`)
+                        return 1;
+                }
+
+
+        },
         add : function (name, valAddRaw) {
 
                 const userFile = require(`./monopoly/users/${name}.json`)
@@ -50,8 +66,11 @@ module.exports = {
                 });
 
         },
+        collect: function (name, valDisRaw) {
+
+        },
         ledge: function (source, dest, val) {
-                console.log(`${source} pays ${dest} £${val}`)
+                console.log(`MONO: ${source} pays ${dest} £${val}`)
                 fs.appendFile('./monopoly/ledger', `${source} pays ${dest} £${val}\n`, function () {}); 
         }
         

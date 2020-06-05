@@ -33,6 +33,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("getout", "Leave jail. e.g !getout dice/money/card")
             .addField("fp", "Collect Free Parking")
             .addField("pot", "Add money to the free parking pot. e.g !pot 50")
+            .addField("bankrupt", "Declare Bankruptcy")
 
         
             message.channel.send(embed)

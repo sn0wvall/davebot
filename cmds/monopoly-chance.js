@@ -23,6 +23,8 @@ module.exports.run = async (bot, message, args) => {
                 money.ledge("bank", message.author.username, actionDest[1])
             break;
             case "pay":
+                if(money.check(message.author.username, actionDest[1], message) == 1)return;
+
                 money.pay(message.author.username, actionDest[1])
                 money.ledge(message.author.username, "bank", actionDest[1])
             break;
@@ -42,6 +44,9 @@ module.exports.run = async (bot, message, args) => {
                 const users = fs.readFileSync('./monopoly/usersList').toString().split("\n");
                 userNum = users.length - 1
                 let cost = userNum * actionDest[1]
+                
+                if(money.check(message.author.username, cost, message) == 1)return;
+
                 money.pay(message.author.username, cost)
                 money.distribute(message.author.username, actionDest[1])
                 money.ledge(message.author.username, "the other players", cost)
