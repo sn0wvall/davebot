@@ -63,12 +63,13 @@ bot.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
+    if(!command.startsWith(prefix)) return;
+
     let cmd = bot.commands.get(command.slice(prefix.length))
     if(cmd) cmd.run(bot, message, args);
 
     if(command.startsWith("r/")) message.channel.send("https://reddit.com/" + command);
 
-    if(!command.startsWith(prefix)) return;
 });
 
 bot.on('guildMemberAdd', member => {
