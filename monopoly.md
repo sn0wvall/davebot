@@ -26,9 +26,9 @@
   - [x] Pay taxes into pot
   - [x] "go" command to give the user £200
 
-- [ ] Jail
-  - [ ] Allow user to declare how they will leave prison (roll a double, pay, etc)
-  - [ ] Track users in jail
+- [x] Jail
+  - [x] Allow user to declare how they will leave prison (roll a double, pay, etc)
+  - [x] Track users in jail
 
 
 ## FUTURE FEATURES

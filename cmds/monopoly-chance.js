@@ -2,6 +2,8 @@ const Discord = require("discord.js")
 // Needed for managing ledger and user files
 const fs = require('fs'); 
 const money = require('../money-manager.js');
+const jail = require('../jail-manager.js');
+
 
 module.exports.run = async (bot, message, args) => {
         
@@ -42,6 +44,9 @@ module.exports.run = async (bot, message, args) => {
                 let cost = userNum * actionDest[1]
                 money.pay(message.author.username, cost)
                 money.distribute(message.author.username, actionDest[1])
+            break;
+            case "jail":
+                jail.add(message.author.username)
             break;
         }
 

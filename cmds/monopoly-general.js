@@ -24,12 +24,16 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor("Commands")
             .setColor("#9B59B6")
             .addField("m init","start a game")
-            .addField("register","register yourself")
+            .addField("m register","register yourself")
             .addField("buy","buy a property")
             .addField("sell","sell a property")
             .addField("chance","draw a chance ")
             .addField("cc", "draw a community chest")
             .addField("go", "pass go (gain £200)")
+            .addField("getout", "Leave jail. e.g !getout dice/money/card")
+            .addField("fp", "Collect Free Parking")
+            .addField("pot", "Add money to the free parking pot. e.g !pot 50")
+
         
             message.channel.send(embed)
             console.log("Command !m help was successfully executed");
