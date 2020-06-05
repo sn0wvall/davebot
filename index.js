@@ -15,7 +15,7 @@ const fs = require("fs");
 fs.writeFile('./monopoly/tokens', '', function () {}); 
 fs.writeFile('./monopoly/ledger', '', function () {}); 
 fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {}); 
-// fs.writeFile('./monopoly/usersList', '', function () {})
+fs.writeFile('./monopoly/usersList', '', function () {})
 fs.writeFile('./monopoly/jail', '', function () {})
 
 // REMOVE THIS

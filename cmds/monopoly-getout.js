@@ -29,6 +29,26 @@ module.exports.run = async (bot, message, args) => {
                 money.pay(message.author.username, 50)
                 money.ledge(message.author.username, "bank", 50)
                 jail.remove(message.author.username)
+                message.channel.send(`${message.author.username} left jail`)
+        break;
+        case "card":
+                const userFile = require(`../monopoly/users/${message.author.username}.json`)
+
+                var userCardJSON = fs.readFileSync(`./monopoly/users/${message.author.username}.json`)
+                var userCardRaw = JSON.parse(userCardJSON);
+
+                var userCardCount = parseInt(userCardRaw.getout, 10)
+                
+                if (userCardCount < 1){
+                        message.channel.send("You dont't have any get out of jail free cards!")
+                } else {
+                        jail.remove(message.author.username)
+                        message.channel.send(`${message.author.username} left jail`)
+
+                        userFile.getout = userCardCount - 1
+
+                        fs.writeFile(`./monopoly/users/${message.author.username}.json`, JSON.stringify(userFile), function () {});
+                }
         break;
         default:
                 message.channel.send(`${messageArray[1]} is not a recognised option for leaving jail. Please use \"dice\", \"money\", or \"card\"`)

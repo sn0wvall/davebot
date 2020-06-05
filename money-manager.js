@@ -12,7 +12,7 @@ module.exports = {
 
                 if (userCheck < valCheck){
                         console.log(`MONO: ${name} cannot afford to pay £${valCheck}`)
-                        message.channel.send(`${message.author.username} cannot affort to pay £${valCheck}!`)
+                        message.channel.send(`${message.author.username} cannot afford to pay £${valCheck}!`)
                         return 1;
                 }
 

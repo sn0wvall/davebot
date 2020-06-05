@@ -54,6 +54,9 @@ module.exports.run = async (bot, message, args) => {
             case "jail":
                 jail.add(message.author.username)
             break;
+            case "repairs":
+                message.channel.send("Please do the maths yourself and then use \"!pay bank [cost]\"")
+            break;
         }
 
     return;

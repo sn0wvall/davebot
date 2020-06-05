@@ -13,7 +13,8 @@ module.exports = {
                 var jailList = fs.readFileSync('./monopoly/jail', 'utf-8');
                 var newJailList = jailList.replace(name, '');
                 fs.writeFileSync('./monopoly/jail', newJailList);
-        
+                console.log(`MONO: Player ${name} left jail`)
+                
         }
         
 };
