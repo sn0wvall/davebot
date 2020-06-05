@@ -15,7 +15,7 @@ _**Dave uses "!" for a command prefix**_
   * A ledger
   * Property Management
   * Money Management
-* To run Dave locally, you will need to create a "monopoly" directory at the root of the directory - Dave should generate the other files
+* To run Dave locally, you will need to create a "monopoly" directory at the root of the directory, and a "users" subdirectory to the monopoly directory - Dave should generate the other files
 * To start Dave, simply run "node /path/to/index.js"
 
 ### Other Cool Commands
