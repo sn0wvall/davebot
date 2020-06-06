@@ -82,6 +82,8 @@ module.exports = {
                 userFile.properties = userFile.properties.replace(`${propName}, `, '');
 
                 // Write out the new property list
+                
+                fs.truncate(`./monopoly/users/${name}.json`, 0, function(){})
                 fs.writeFile(`./monopoly/users/${name}.json`, JSON.stringify(userFile), function () {});
 
                 console.log(`MONO: Player ${name} mortgaged ${propName}`)
