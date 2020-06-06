@@ -34,6 +34,9 @@ module.exports.run = async (bot, message, args) => {
             .addField("pot", "Add money to the free parking pot. e.g !pot 50")
             .addField("bankrupt", "Declare Bankruptcy")
             .addField("mortage [property]", "mortage your property. See the buy command for the correct format")
+            .addField("pay [destination] [quantity]", "Pay money ")
+            .addField("get [quantity]", "Get money")
+
 
         
             message.channel.send(embed)
