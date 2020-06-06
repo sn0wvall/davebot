@@ -15,12 +15,12 @@
 
 - [x] Dice
 
-- [ ] Properties
-  - [ ] Create List of Properties in JSON format
-  - [ ] Buying
-    - [ ] Check if property is available and if the player can afford it
-    - [ ] Add the property to the player and mark it as sold
-  - [ ] Mortgage
+- [x] Properties
+  - [x] Create List of Properties in JSON format
+  - [x] Buying
+    - [x] Check if property is available and if the player can afford it
+    - [x] Add the property to the player and mark it as sold
+  - [x] Mortgage
 
 - [x] Misc Board
   - [x] Pay taxes into pot

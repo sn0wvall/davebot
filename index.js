@@ -18,6 +18,11 @@ fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {});
 fs.writeFile('./monopoly/usersList', '', function () {})
 fs.writeFile('./monopoly/jail', '', function () {})
 
+var propertiesTemplate = fs.readFileSync('./properties-template.json', 'utf-8')
+
+fs.writeFile('./properties.json', propertiesTemplate, function () {})
+
+
 // REMOVE THIS
 
 fs.writeFile(`./monopoly/users/tester.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0, \"getout\":0}\n', function () {})

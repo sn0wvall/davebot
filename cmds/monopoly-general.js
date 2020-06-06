@@ -21,12 +21,11 @@ module.exports.run = async (bot, message, args) => {
             break;
         case "help":
             let embed = new Discord.RichEmbed()
-            .setAuthor("Commands")
+            .setAuthor("Monopoly Commands")
             .setColor("#9B59B6")
             .addField("m init","start a game")
-            .addField("m register","register yourself")
-            .addField("buy","buy a property")
-            .addField("sell","sell a property")
+            .addField("m register [token]","register yourself")
+            .addField("buy [property]","buy a property. Properties must be input in the form \"colourNumber\". For example, Whitechapel Road is brown1")
             .addField("chance","draw a chance ")
             .addField("cc", "draw a community chest")
             .addField("go", "pass go (gain £200)")
@@ -34,6 +33,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("fp", "Collect Free Parking")
             .addField("pot", "Add money to the free parking pot. e.g !pot 50")
             .addField("bankrupt", "Declare Bankruptcy")
+            .addField("mortage [property]", "mortage your property. See the buy command for the correct format")
 
         
             message.channel.send(embed)
@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
                 fs.appendFile('monopoly/tokens', `${messageArray[2]}\n`, function () {})
                 fs.appendFile('monopoly/usersList', `${message.author.username}\n`, function () {})
                 message.channel.send(`${message.author.username} Registered! Token: ${messageArray[2]}`)
-                fs.writeFile(`monopoly/users/${message.author.username}.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0, \"getout\":0}', function () {})
+                fs.writeFile(`monopoly/users/${message.author.username}.json`, '{\"money\":1500, \"properties\":\"- \", \"location\":0, \"getout\":0}', function () {})
                 console.log(`MONO: ${message.author.username} registered with token: ${messageArray[2]}`)
             }
             break;
