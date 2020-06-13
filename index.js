@@ -15,6 +15,7 @@ const fs = require("fs");
 fs.writeFile('./monopoly/tokens', '', function () {}); 
 fs.writeFile('./monopoly/ledger', '', function () {}); 
 fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {}); 
+// fs.writeFile(`./monopoly/userIndex.json`, '{}', function () {}); 
 fs.writeFile('./monopoly/usersList', '', function () {})
 fs.writeFile('./monopoly/jail', '', function () {})
 
@@ -68,12 +69,11 @@ bot.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
+    if(command.startsWith("r/")) message.channel.send("https://reddit.com/" + command);
     if(!command.startsWith(prefix)) return;
 
     let cmd = bot.commands.get(command.slice(prefix.length))
     if(cmd) cmd.run(bot, message, args);
-
-    if(command.startsWith("r/")) message.channel.send("https://reddit.com/" + command);
 
 });
 

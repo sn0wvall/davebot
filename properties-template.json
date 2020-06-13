@@ -130,5 +130,41 @@
                 "owned": 0,
                 "value": 400,
                 "housePrice": 200 
+        },
+        "station1":{
+                "name": "King's Cross Station",
+                "owned": 0,
+                "value": 200,
+                "housePrice": 0 
+        },
+        "station2":{
+                "name": "Marylebone Station",
+                "owned": 0,
+                "value": 200,
+                "housePrice": 0 
+        },
+        "station3":{
+                "name": "Fenchurch Street Station",
+                "owned": 0,
+                "value": 200,
+                "housePrice": 0
+        },
+        "station4":{
+                "name": "Liverpool Street Station",
+                "owned": 0,
+                "value": 200,
+                "housePrice": 0 
+        },
+        "utility1":{
+                "name": "Electric Company",
+                "owned": 0,
+                "value": 150,
+                "housePrice": 0 
+        },
+        "utility2":{
+                "name": "Water Works",
+                "owned": 0,
+                "value": 150,
+                "housePrice": 0 
         }
 }

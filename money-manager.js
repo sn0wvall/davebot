@@ -2,6 +2,9 @@ const fs = require('fs');
 
 module.exports = {
         check: function (name, valRaw, message) {
+
+                console.log(name)
+
                 const userFile = require(`./monopoly/users/${name}.json`)
                 
                 var userCheckJSON = fs.readFileSync(`./monopoly/users/${name}.json`)
@@ -20,6 +23,8 @@ module.exports = {
         },
         add : function (name, valAddRaw) {
 
+                console.log(name)
+
                 const userFile = require(`./monopoly/users/${name}.json`)
 
                 var userValJSON = fs.readFileSync(`./monopoly/users/${name}.json`)
@@ -35,6 +40,8 @@ module.exports = {
         },
         pay: function (name, valAddRaw) {
 
+                console.log(name)
+
                 const userFile = require(`./monopoly/users/${name}.json`)
 
                 var userValJSON = fs.readFileSync(`./monopoly/users/${name}.json`)
@@ -49,6 +56,8 @@ module.exports = {
         
         },
         distribute: function (name, valDisRaw) {
+
+                console.log(name)
 
                 const users = fs.readFileSync('./monopoly/usersList').toString().split("\n");
                 const money = require('./money-manager.js');

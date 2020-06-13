@@ -43,19 +43,19 @@ module.exports.run = async (bot, message, args) => {
             console.log("Command !m help was successfully executed");
             break;   
         case "register":
-            if (tokens.indexOf(messageArray[2]) < 0){
+            if (tokens.indexOf(messageArray[3]) < 0){
                 message.channel.send(`Please use one of the following tokens to register: dog, shoe, hat, boat, car, iron, thimble, wheelbarrow, cat`)
-            } else if (tokensRegistered.indexOf(messageArray[2]) > -1){
-                message.channel.send(`${messageArray[2]} is already taken.`)
+            } else if (tokensRegistered.indexOf(messageArray[3]) > -1){
+                message.channel.send(`${messageArray[3]} is already taken.`)
             } else if (users.indexOf(message.author.username) > -1){
                 location = users.indexOf(message.author.username)
                 message.channel.send(`${message.author.username} already registered with token ${tokensRegistered[location]}`)
             } else {
-                fs.appendFile('monopoly/tokens', `${messageArray[2]}\n`, function () {})
+                fs.appendFile('monopoly/tokens', `${messageArray[3]}\n`, function () {})
                 fs.appendFile('monopoly/usersList', `${message.author.username}\n`, function () {})
-                message.channel.send(`${message.author.username} Registered! Token: ${messageArray[2]}`)
-                fs.writeFile(`monopoly/users/${message.author.username}.json`, '{\"money\":1500, \"properties\":\"- \", \"location\":0, \"getout\":0}', function () {})
-                console.log(`MONO: ${message.author.username} registered with token: ${messageArray[2]}`)
+                message.channel.send(`${message.author.username} Registered! Token: ${messageArray[3]}`)
+                fs.writeFile(`monopoly/users/${message.author.username}.json`, `{\"name\":\"${messageArray[2]}\",\"money\":1500, \"properties\":\"- \", \"location\":0, \"getout\":0}`, function () {})
+                console.log(`MONO: ${message.author.username} registered with token: ${messageArray[3]}`)
             }
             break;
         default:

@@ -70,6 +70,7 @@ module.exports.run = async (bot, message, args) => {
             let i = 0
 
             users.forEach(function(item) {
+                console.log(item)
                 money.pay(item, actionDest[1])
                 i++
             });

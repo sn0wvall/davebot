@@ -11,6 +11,8 @@ module.exports.run = async (bot, message, args) => {
         money.pay("pot", value.money)
         money.ledge("pot", message.author.username, value.money)
 
+        message.channel.send(`${message.author.username} claimed £${value.money} from the pot!`)
+
         return;
 }
 
