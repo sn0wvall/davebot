@@ -14,9 +14,8 @@ const fs = require("fs");
 
 fs.writeFile('./monopoly/tokens', '', function () {}); 
 fs.writeFile('./monopoly/ledger', '', function () {}); 
-fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {}); 
-// fs.writeFile(`./monopoly/userIndex.json`, '{}', function () {}); 
-fs.writeFile('./monopoly/usersList', '', function () {})
+fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {});  
+// fs.writeFile('./monopoly/usersList', '', function () {})
 fs.writeFile('./monopoly/jail', '', function () {})
 
 var propertiesTemplate = fs.readFileSync('./properties-template.json', 'utf-8')
@@ -56,7 +55,7 @@ bot.on("ready", () => {
     console.log(`"${bot.user.username}" is operational.`)
     bot.user.setPresence({
         game: {
-            name: 'the damn objective',
+            name: 'monopoly with the boys',
             type: "playing",
         }
     });

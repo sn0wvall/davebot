@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor("Monopoly Commands")
             .setColor("#9B59B6")
             .addField("m init","start a game")
-            .addField("m register [token]","register yourself")
+            .addField("m register [username] [token]","register yourself")
             .addField("buy [property]","buy a property. Properties must be input in the form \"colourNumber\". For example, Whitechapel Road is brown1")
             .addField("chance","draw a chance ")
             .addField("cc", "draw a community chest")
@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
                 message.channel.send(`${message.author.username} already registered with token ${tokensRegistered[location]}`)
             } else {
                 fs.appendFile('monopoly/tokens', `${messageArray[3]}\n`, function () {})
-                fs.appendFile('monopoly/usersList', `${message.author.username}\n`, function () {})
+                fs.appendFile('monopoly/usersList', `${message.author.username},${messageArray[2]}\n`, function () {})
                 message.channel.send(`${message.author.username} Registered! Token: ${messageArray[3]}`)
                 fs.writeFile(`monopoly/users/${message.author.username}.json`, `{\"name\":\"${messageArray[2]}\",\"money\":1500, \"properties\":\"- \", \"location\":0, \"getout\":0}`, function () {})
                 console.log(`MONO: ${message.author.username} registered with token: ${messageArray[3]}`)
