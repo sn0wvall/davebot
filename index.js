@@ -16,6 +16,7 @@ fs.writeFile('./monopoly/tokens', '', function () {});
 fs.writeFile('./monopoly/ledger', '', function () {}); 
 fs.writeFile(`./monopoly/users/pot.json`, '{\"money\":0}', function () {});  
 // fs.writeFile('./monopoly/usersList', '', function () {})
+// fs.writeFile('./monopoly/usersRef.json', '{}', function () {})
 fs.writeFile('./monopoly/jail', '', function () {})
 
 var propertiesTemplate = fs.readFileSync('./properties-template.json', 'utf-8')

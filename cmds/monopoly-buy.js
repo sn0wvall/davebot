@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(money.check(message.author.username, properties[messageArray[1]].value, message) == 1)return;
 
-    property.buy(message.author.username, messageArray[1])
+    property.buy(message.author.username, messageArray[1], messageArray[1])
 
     message.channel.send(`${message.author.username} buys \"${properties[messageArray[1]].name}\"`)
     console.log(`MONO: ${message.author.username} buys \"${properties[messageArray[1]].name}\"`)
