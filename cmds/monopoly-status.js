@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(message.author.username)
         .setColor("#9B59B6")
         .addField("Money", userFile.money)
+        .addField("Nickname", userFile.name)
         .addField("Get Out of Jail Free Cards", userFile.getout)
         .addField("Properties", userFile.properties)
 

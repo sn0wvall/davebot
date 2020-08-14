@@ -2,9 +2,16 @@ const Discord = require("discord.js")
 
 module.exports.run = async (bot, message, args) => {
 
-    const userFile = require(`../monopoly/users/${message.author.username}.json`)
+    let messageArray = message.content.split(" ");
+    const userRefFile = require("../monopoly/usersRef.json")
+    const refName = userRefFile[messageArray[1]]
 
-    message.channel.send(userFile.name)
+    if(!refName){
+        message.channel.send("No user has this nickname")
+        return;
+    }
+
+    message.channel.send(refName)
 
     return;
 }

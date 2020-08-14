@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor("Monopoly Commands")
             .setColor("#9B59B6")
             .addField("m init","start a game")
-            .addField("m register [username] [token]","register yourself")
+            .addField("m register [nickname] [token]","register yourself")
             .addField("buy [property code]","buy a property. Properties must be input in the form \"colourNumber\". For example, Whitechapel Road is brown1")
             .addField("chance","draw a chance ")
             .addField("cc", "draw a community chest")
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("pay [destination] [quantity]", "Pay money ")
             .addField("get [quantity]", "Get money")
             .addField("give [source] [destination] [property code]. If a player's username has two words, please use the nickname they registered with.")
-
+            .addField("whois [nickname]. Find a player's true username from their nickname.")
 
         
             message.channel.send(embed)
