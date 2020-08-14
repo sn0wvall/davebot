@@ -92,6 +92,8 @@ module.exports = {
         },
         give: function (source,dest,property) {
 
+
+                console.log(dest, source, property)
                 const propFile = require('./properties.json')
                 var propName = propFile[property].name
                 
