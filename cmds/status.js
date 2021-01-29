@@ -1,16 +1,16 @@
 const Discord = require("discord.js")
 
-module.exports.run = async (bot, message, args) => {
-    let embed = new Discord.RichEmbed()
-    .setColor("#9B59B6")
-    .addField("Status","DaveBot is currently online")
+module.exports.run = async (bot, message, args, timestamp) => {
+    	let embed = new Discord.RichEmbed()
+    	.setColor("#9B59B6")
+    	.addField("Status","DaveBot is currently online")
 
-    message.channel.send(embed)
-    console.log("Command !status was successfully executed");
-
-    return;
+    	message.channel.send(embed)
+	console.log(timestamp + " status executed by " + message.author.tag)
+    	
+	return;
 }
 
 module.exports.help = {
-    name: "status"
+	name: "status"
 }

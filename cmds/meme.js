@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const randomPuppy = require("random-puppy")
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, timestamp) => {
     let reddit = [
         "meme",
         "memes",
@@ -28,7 +28,8 @@ module.exports.run = async (bot, message, args) => {
             }).then(() => message.channel.stopTyping());
     }).catch(err => console.error(err));
 
-    console.log(`meme command executed succesfully from subreddit \"${subreddit}\"`)
+	console.log(timestamp + " meme executed by " + message.author.tag + " from " + subreddit )
+	message.channel.stopTyping();
 }
 
 module.exports.help = {

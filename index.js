@@ -9,7 +9,19 @@ const prefix = botSettings.prefix;
 const bot = new Discord.Client({disableEveryone: true});
 const randomPuppy = require("random-puppy")
 const fs = require("fs");
+
 bot.afkList = require("./afk.json")
+
+//Functions
+
+Date.prototype.today = function () { 
+	return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+}
+Date.prototype.time = function () {
+     	return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
+
+let timestamp = new Date().today() + "@" + new Date().time()
 
 // Reset Monopoly
 
@@ -54,29 +66,30 @@ fs.readdir("./cmds/", (err, files) => {
 let memberCount = 0
 
 bot.on("ready", () => {
-    console.log(`"${bot.user.username}" is operational.`)
     bot.user.setPresence({
         game: {
             name: 'monopoly with the boys',
             type: "playing",
         }
     });
+    console.log(`${timestamp} "${bot.user.username}" is online`)
 });
 
 bot.on("message", async message => {
-    if(message.author.bot) return;
-    if (message.channel.type === 'dm') return;
+	if(message.author.bot) return;
+    	if (message.channel.type === 'dm') return;
 
-    let messageArray = message.content.split(" ");
-    let command = messageArray[0];
-    let args = messageArray.slice(1);
+    	let messageArray = message.content.split(" ");
+    	let command = messageArray[0];
+    	let args = messageArray.slice(1);
+	let timestamp = new Date().today() + "@" + new Date().time()
+    	
+	if(command.startsWith("r/")) message.channel.send("https://reddit.com/" + command);
+	if(!command.startsWith(prefix)) return;
 
-    if(command.startsWith("r/")) message.channel.send("https://reddit.com/" + command);
-    if(!command.startsWith(prefix)) return;
+	let cmd = bot.commands.get(command.slice(prefix.length))
 
-    let cmd = bot.commands.get(command.slice(prefix.length))
-
-    if(cmd) cmd.run(bot, message, args);
+    	if(cmd) cmd.run(bot, message, args, timestamp);
 
 });
 
