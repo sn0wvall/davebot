@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args, timestamp) => {
     	.addField("meme", "Generates a very epic meme")
     	.addField("poll", "Generates a poll (!poll [title] [timeout in seconds (use 0 to disable timeout)] [options (seperated by commas)]")
 	.addField("server","Tell you information about the server the command is sent")
+	.addField("time", "Convert between timezones")
 	
 	message.channel.send(embed)
     	
