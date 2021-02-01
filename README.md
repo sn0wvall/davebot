@@ -20,10 +20,12 @@ _**Dave uses "!" for a command prefix**_
 
 ### Other Cool Commands
 
-* help - show help
+* halp - show help
 * me - sends information concerning your discord account
 * 8ball - tells you the absolute truth to any question
 * status - If Dave sends a message, he is online. Otherwise, he is not.
-* wiki - Searches either the Warframe or Destiny 2 Wiki for your search term (e.g !wiki D2 Ghost)
+* wiki - Searches the Warframe, Destiny 2, Minecraft or Terraria Wiki for your search term (e.g !wiki D2 Ghost)
 * meme - Sends a meme
-
+* time - converts time between timezones
+* poll - runs a poll
+* serverinfo - sends server info
