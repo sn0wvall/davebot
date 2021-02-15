@@ -1,8 +1,4 @@
-//Todo:
-//Memes
-//Dave FM
-
-//Core stuff start
+//Core variables
 const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const prefix = botSettings.prefix;
@@ -10,9 +6,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const randomPuppy = require("random-puppy")
 const fs = require("fs");
 
-bot.afkList = require("./afk.json")
-
-//Functions
+//Timestamp generation for logs
 
 Date.prototype.today = function () { 
 	return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
@@ -37,10 +31,7 @@ var propertiesTemplate = fs.readFileSync('./properties-template.json', 'utf-8')
 fs.writeFile('./properties.json', propertiesTemplate, function () {})
 
 
-// REMOVE THIS
-
-fs.writeFile(`./monopoly/users/tester.json`, '{\"money\":1500, \"properties\":\"\", \"location\":0, \"getout\":0}\n', function () {})
-
+// Read in command files
 
 bot.commands = new Discord.Collection();
 
@@ -62,8 +53,7 @@ fs.readdir("./cmds/", (err, files) => {
     })
 });
 
-//Core stuff end
-let memberCount = 0
+// Start bot
 
 bot.on("ready", () => {
     bot.user.setPresence({
@@ -75,26 +65,35 @@ bot.on("ready", () => {
     console.log(`${timestamp} "${bot.user.username}" is online`)
 });
 
-bot.on("message", async message => {
-	if(message.author.bot) return;
-    	if (message.channel.type === 'dm') return;
+// Run Command on message
 
-    	let messageArray = message.content.split(" ");
-    	let command = messageArray[0];
-    	let args = messageArray.slice(1);
-	let timestamp = new Date().today() + "@" + new Date().time()
+bot.on("message", async message => {
+	
+    // Return conditions
+    if(message.author.bot) return;
+    if (message.channel.type === 'dm') return;
+
+    // Define variables
+    let messageArray = message.content.split(" ");
+    let command = messageArray[0];
+    let args = messageArray.slice(1);
+	// let timestamp = new Date().today() + "@" + new Date().time()
     	
+    // Reddit autolinker
 	if(command.startsWith("r/")) message.channel.send("https://reddit.com/" + command);
 	if(!command.startsWith(prefix)) return;
 
+
+    // Execute command
 	let cmd = bot.commands.get(command.slice(prefix.length))
 
-    	if(cmd) cmd.run(bot, message, args, timestamp);
+    if(cmd) cmd.run(bot, message, args, timestamp);
 
 });
 
+
+// Welcome message
 bot.on('guildMemberAdd', member => {
-    memberCount =+ 1;
     let defaultChannel = member.guild.channels.find(c=> c.permissionsFor(member.guild.me).has("SEND_MESSAGES"));
     console.log(defaultChannel.guild.systemChannelID);
     console.log("Attempting to welcome...");
@@ -103,5 +102,5 @@ bot.on('guildMemberAdd', member => {
     console.log("Welcome Success!");
 });
 
-//DON'T TOUCH THIS OR EVERYONE WILL DIE
+//DO NOT DELETE
 bot.login(botSettings.token);

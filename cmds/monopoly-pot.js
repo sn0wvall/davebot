@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
         money.add("pot", messageArray[1])
         money.pay(message.author.username, messageArray[1])
-        message.channel.send(`Added ${messageArray[1]} to the pot!`)
+        message.channel.send(`🪙 Added ${messageArray[1]} to the pot!`)
 
         return;
 }

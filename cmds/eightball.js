@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports.run = async (bot, message, args, timestamp) => {
     
-    	let eightBallAnswers = ["Yes","No","Never","Perhaps","Of course","Ask again"];
+    	let eightBallAnswers = ["Yes","No","Never","Perhaps","Of course","Ask again", "Probably Not", "Undeniably", "Not in a million years"];
     	let eightBallAnswer = eightBallAnswers[Math.floor(Math.random()*eightBallAnswers.length)];
     
     	message.channel.send(eightBallAnswer);

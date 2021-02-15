@@ -17,5 +17,6 @@ module.exports.run = async (bot, message, args, timestamp) => {
 }
 
 module.exports.help = {
-    name: "me"
+    name: "me",
+    description: "Bot sends information about user"
 }
