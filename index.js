@@ -68,7 +68,7 @@ let memberCount = 0
 bot.on("ready", () => {
     bot.user.setPresence({
         game: {
-            name: 'monopoly with the boys',
+            name: 'node.js',
             type: "playing",
         }
     });
